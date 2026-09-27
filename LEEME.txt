@@ -1,0 +1,75 @@
+POWERSHELL LAB
+Laboratorio guiado para estudiantes de Bachillerato
+
+CÓMO ABRIR LA PLATAFORMA
+
+Descomprime PowerShell_Lab.zip. Abre index.html con un navegador actualizado, como Chrome, Edge o Firefox. Mantén juntos todos los archivos y la carpeta assets. No abras el HTML directamente desde dentro del ZIP.
+
+La plataforma incluye React y ReactDOM de manera local. Funciona sin conexión y sin instalar Node, npm, paquetes o extensiones. No necesita servidor ni cuenta de usuario.
+
+CÓMO SUBIRLA A GITHUB PAGES
+
+Crea o abre tu repositorio de GitHub. Sube el contenido de esta carpeta para que index.html quede en la raíz del repositorio. Sube también assets y sus archivos. No basta con subir únicamente el ZIP.
+
+En Settings > Pages, selecciona Deploy from a branch. Elige la rama donde subiste los archivos, normalmente main, y la carpeta /(root). Guarda y espera a que GitHub muestre la dirección del sitio.
+
+Las rutas son relativas. La plataforma puede estar en https://usuario.github.io/nombre-del-repositorio/ sin cambiar los archivos. También puede servirse desde una subcarpeta.
+
+Referencia de GitHub
+https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+
+QUÉ INCLUYE
+
+Doce misiones con 25 pasos: mensajes, cuatro operaciones matemáticas, ubicación actual, listado de archivos, navegación, carpetas, archivos, escritura, lectura, variables, entrada por teclado y reto final.
+
+Ocho comandos principales: Write-Output, Read-Host, Get-Location, Get-ChildItem, Set-Location, New-Item, Set-Content y Get-Content. Se admiten los ejemplos del material, los parámetros -Path, -Value, -ItemType y -Prompt, el cambio de orden de los parámetros y diferencias de mayúsculas en los comandos y las rutas.
+
+También admite help, Get-Help para los comandos presentados, asignaciones de variables, sustitución de variables dentro de comillas dobles, cadenas literales entre comillas simples, operaciones + - * / con precedencia y paréntesis, rutas relativas, absolutas, $HOME y ..
+
+La corrección comprueba la acción realizada y su resultado. Un comando válido que no satisface el objetivo recibe una explicación. Un error no resta puntos. El botón Restaurar paso recupera los archivos y variables que había al inicio del paso actual.
+
+El explorador destaca los elementos relacionados con el comando. Seleccionar un archivo abre su vista previa. Abrir o cerrar carpetas en el explorador no cambia por sí solo la ubicación de la terminal: ese cambio se realiza mediante Set-Location. La marca PS señala la carpeta de trabajo.
+
+Las flechas arriba y abajo recuperan los comandos del historial. Durante Read-Host, escribe la respuesta como texto y presiona Enter. No escribas un comando mientras la terminal esté esperando esa respuesta.
+
+El reto final utiliza un espacio nuevo de archivos y conserva las variables. La práctica guiada anterior se conserva en la sesión como instantánea de referencia. Al completar el reto se habilita la práctica libre.
+
+GUARDADO DEL PROGRESO
+
+El progreso, los archivos simulados, las variables y el historial se guardan con LocalStorage en el mismo navegador y dirección. Al volver a abrir, puedes continuar o reiniciar con confirmación.
+
+El guardado es local, no se comparte entre estudiantes, equipos o navegadores. El modo privado, las restricciones del navegador o la limpieza de datos pueden impedirlo o borrarlo. Si el guardado falla, la plataforma muestra un aviso y permite continuar la sesión abierta. Al mover la carpeta local a otra ubicación puede cambiar el espacio de guardado.
+
+ANTES DE LA CLASE
+
+Descomprime la carpeta en un equipo del laboratorio y abre index.html. Realiza el primer paso y recarga la página para comprobar el guardado en el navegador del centro. Después puedes usar Reiniciar laboratorio para dejarlo listo para los estudiantes.
+
+ALCANCE DE LA SIMULACIÓN
+
+Es un intérprete educativo de un subconjunto de PowerShell. No ejecuta PowerShell real, scripts descargados, comandos del sistema ni código JavaScript introducido en la terminal. Los archivos y carpetas existen únicamente dentro de esta aplicación. No tiene acceso a los archivos reales del equipo.
+
+No intenta reproducir módulos administrativos, tuberías, funciones, bucles, comodines, todos los alias ni todos los parámetros de PowerShell. Ante sintaxis no admitida muestra una orientación. Las salidas tabulares y algunas conversiones están simplificadas para la clase.
+
+No envía respuestas, nombres ni resultados a un servidor. Si los estudiantes comparten el mismo navegador, reinicien el laboratorio al cambiar de usuario.
+
+ARCHIVOS DEL PROYECTO
+
+index.html abre la aplicación.
+styles.css contiene el diseño y las adaptaciones para pantallas pequeñas.
+app.js contiene la interfaz React, el progreso y el guardado.
+engine.js contiene el intérprete y el sistema de archivos virtual.
+lessons.js contiene los datos de las misiones que utiliza la aplicación.
+lessons.json es la copia JSON de las mismas misiones para su consulta y edición.
+assets contiene React 18.3.1, ReactDOM 18.3.1 y sus licencias.
+
+No hay proceso de compilación. Los archivos JavaScript se ejecutan directamente en el navegador. Si editas las misiones, actualiza lessons.js; mantén lessons.json sincronizado como copia de los mismos datos. No se descarga el JSON mediante fetch, para permitir abrir la aplicación localmente con file://.
+
+DOCUMENTACIÓN TÉCNICA
+
+React
+https://react.dev/reference/react-dom/client/createRoot
+
+PowerShell
+https://learn.microsoft.com/powershell/
+
+Los ejemplos de uso del intérprete se basan en los ocho comandos del material de clase. React y ReactDOM se redistribuyen bajo licencia MIT, incluida en assets/REACT_LICENSE.txt. Los avisos originales también se conservan en los archivos de las bibliotecas.

@@ -1,0 +1,483 @@
+[
+  {
+    "id": "output",
+    "title": "Tu primera instrucción",
+    "topic": "Mostrar información",
+    "introduces": [
+      "write-output"
+    ],
+    "intro": "PowerShell recibe instrucciones escritas. La terminal es la ventana donde las escribes y lees sus resultados. PS identifica el prompt de PowerShell; la ruta indica tu carpeta actual y > marca dónde comienza tu instrucción.",
+    "steps": [
+      {
+        "title": "Envía un mensaje a la terminal",
+        "instruction": "Escribe la instrucción y presiona Enter. Cambiará la terminal, no los archivos.",
+        "example": "Write-Output \"Hola mundo\"",
+        "parts": [
+          [
+            "Write-Output",
+            "comando"
+          ],
+          [
+            "\"Hola mundo\"",
+            "mensaje"
+          ]
+        ],
+        "check": {
+          "command": "write-output",
+          "value": "Hola mundo"
+        },
+        "goal": "mostrar Hola mundo mediante Write-Output"
+      },
+      {
+        "title": "Cambia el mensaje",
+        "instruction": "Conserva el comando y modifica el texto entre comillas. Las comillas permiten que una frase se interprete como un solo valor.",
+        "example": "Write-Output \"Estoy aprendiendo PowerShell\"",
+        "check": {
+          "command": "write-output",
+          "value": "Estoy aprendiendo PowerShell"
+        },
+        "goal": "mostrar Estoy aprendiendo PowerShell"
+      }
+    ]
+  },
+  {
+    "id": "math",
+    "title": "Calcula en la terminal",
+    "topic": "Operaciones matemáticas",
+    "introduces": [],
+    "intro": "También puedes escribir expresiones matemáticas. Una operación como 5 + 3 no es el nombre de un comando.",
+    "steps": [
+      {
+        "title": "Suma dos números",
+        "instruction": "Escribe la suma. ¿Qué resultado esperas ver?",
+        "example": "5 + 3",
+        "check": {
+          "kind": "math",
+          "value": 8,
+          "operator": "+"
+        },
+        "goal": "evaluar una suma cuyo resultado sea 8"
+      },
+      {
+        "title": "Resta",
+        "instruction": "El signo - indica una resta dentro de una expresión numérica.",
+        "example": "10 - 4",
+        "check": {
+          "kind": "math",
+          "value": 6,
+          "operator": "-"
+        },
+        "goal": "evaluar una resta cuyo resultado sea 6"
+      },
+      {
+        "title": "Multiplica",
+        "instruction": "Utiliza el asterisco * para multiplicar.",
+        "example": "6 * 7",
+        "check": {
+          "kind": "math",
+          "value": 42,
+          "operator": "*"
+        },
+        "goal": "evaluar una multiplicación cuyo resultado sea 42"
+      },
+      {
+        "title": "Divide",
+        "instruction": "La barra / representa una división. También puedes agrupar operaciones con paréntesis.",
+        "example": "20 / 4",
+        "check": {
+          "kind": "math",
+          "value": 5,
+          "operator": "/"
+        },
+        "goal": "evaluar una división cuyo resultado sea 5"
+      }
+    ]
+  },
+  {
+    "id": "location",
+    "title": "¿Dónde estás trabajando?",
+    "topic": "La ubicación actual",
+    "introduces": [
+      "get-location"
+    ],
+    "intro": "Una ruta es la dirección de una carpeta o un archivo. C:\\Users\\Estudiante es la carpeta principal del usuario de este laboratorio.",
+    "steps": [
+      {
+        "title": "Consulta tu ubicación",
+        "instruction": "Observa la ruta que aparece bajo Path y compárala con el prompt y el explorador.",
+        "example": "Get-Location",
+        "check": {
+          "command": "get-location",
+          "path": "$HOME"
+        },
+        "goal": "consultar la ubicación desde tu carpeta principal"
+      }
+    ]
+  },
+  {
+    "id": "list",
+    "title": "Mira dentro de la carpeta",
+    "topic": "Archivos y carpetas",
+    "introduces": [
+      "get-childitem"
+    ],
+    "intro": "Una carpeta puede contener otras carpetas y archivos. Listar los elementos permite conocer sus nombres.",
+    "steps": [
+      {
+        "title": "Lista los elementos",
+        "instruction": "Encuentra Documents, Downloads y Pictures. Se resaltarán también en el explorador.",
+        "example": "Get-ChildItem",
+        "check": {
+          "command": "get-childitem",
+          "path": "$HOME"
+        },
+        "goal": "listar los elementos de tu carpeta principal"
+      }
+    ]
+  },
+  {
+    "id": "navigate",
+    "title": "Cambia de carpeta",
+    "topic": "Navegación",
+    "introduces": [
+      "set-location"
+    ],
+    "intro": "Set-Location cambia la carpeta de trabajo. Los archivos permanecen en su lugar; tú cambias de ubicación.",
+    "steps": [
+      {
+        "title": "Entra en Documents",
+        "instruction": "Después de ejecutar, observa cómo cambia la ruta del prompt.",
+        "example": "Set-Location Documents",
+        "parts": [
+          [
+            "Set-Location",
+            "comando"
+          ],
+          [
+            "Documents",
+            "carpeta de destino"
+          ]
+        ],
+        "check": {
+          "command": "set-location",
+          "path": "$HOME\\Documents"
+        },
+        "goal": "entrar en Documents"
+      },
+      {
+        "title": "Regresa a tu carpeta principal",
+        "instruction": "$HOME contiene la ruta de tu carpeta de usuario. Para subir una carpeta también puedes usar Set-Location ..",
+        "example": "Set-Location $HOME",
+        "check": {
+          "command": "set-location",
+          "path": "$HOME"
+        },
+        "goal": "regresar a C:\\Users\\Estudiante"
+      }
+    ]
+  },
+  {
+    "id": "folder",
+    "title": "Crea tu espacio de trabajo",
+    "topic": "Crear carpetas",
+    "introduces": [
+      "new-item"
+    ],
+    "intro": "Los parámetros dan detalles al comando. -ItemType indica qué crear: Directory significa carpeta.",
+    "steps": [
+      {
+        "title": "Crea MiProyecto",
+        "instruction": "La carpeta debe aparecer en el explorador al ejecutar el comando.",
+        "example": "New-Item MiProyecto -ItemType Directory",
+        "parts": [
+          [
+            "New-Item",
+            "comando"
+          ],
+          [
+            "MiProyecto",
+            "nombre"
+          ],
+          [
+            "-ItemType",
+            "parámetro"
+          ],
+          [
+            "Directory",
+            "valor del parámetro"
+          ]
+        ],
+        "check": {
+          "command": "new-item",
+          "path": "$HOME\\MiProyecto",
+          "type": "folder"
+        },
+        "goal": "crear la carpeta MiProyecto dentro de tu carpeta principal"
+      },
+      {
+        "title": "Entra en la nueva carpeta",
+        "instruction": "Los siguientes archivos se crearán dentro de MiProyecto.",
+        "example": "Set-Location MiProyecto",
+        "check": {
+          "command": "set-location",
+          "path": "$HOME\\MiProyecto"
+        },
+        "goal": "entrar en MiProyecto"
+      }
+    ]
+  },
+  {
+    "id": "file",
+    "title": "Crea tu primer archivo",
+    "topic": "Crear archivos",
+    "introduces": [],
+    "intro": "El mismo comando New-Item crea distintos elementos. Esta vez utilizaremos File, que significa archivo.",
+    "steps": [
+      {
+        "title": "Crea ficha.txt",
+        "instruction": "Un archivo .txt guarda texto simple. Al crearlo, estará vacío.",
+        "example": "New-Item ficha.txt -ItemType File",
+        "parts": [
+          [
+            "ficha.txt",
+            "nombre y extensión"
+          ],
+          [
+            "File",
+            "tipo de elemento"
+          ]
+        ],
+        "check": {
+          "command": "new-item",
+          "path": "$HOME\\MiProyecto\\ficha.txt",
+          "type": "file"
+        },
+        "goal": "crear ficha.txt dentro de MiProyecto"
+      }
+    ]
+  },
+  {
+    "id": "write",
+    "title": "Guarda un mensaje",
+    "topic": "Escribir en archivos",
+    "introduces": [
+      "set-content"
+    ],
+    "intro": "Set-Content escribe texto en un archivo. Si ya había contenido, lo reemplaza por completo.",
+    "steps": [
+      {
+        "title": "Escribe dentro de ficha.txt",
+        "instruction": "La terminal puede volver al prompt sin mostrar un resultado. Comprueba el cambio en la vista previa.",
+        "example": "Set-Content ficha.txt \"Mi primer archivo con PowerShell\"",
+        "check": {
+          "command": "set-content",
+          "path": "$HOME\\MiProyecto\\ficha.txt",
+          "value": "Mi primer archivo con PowerShell"
+        },
+        "goal": "guardar Mi primer archivo con PowerShell en ficha.txt"
+      }
+    ]
+  },
+  {
+    "id": "read",
+    "title": "Recupera lo que guardaste",
+    "topic": "Leer archivos",
+    "introduces": [
+      "get-content"
+    ],
+    "intro": "Get-ChildItem lista nombres. Get-Content lee lo que está escrito dentro de un archivo.",
+    "steps": [
+      {
+        "title": "Lee ficha.txt",
+        "instruction": "Compara el resultado de la terminal con la vista previa del archivo.",
+        "example": "Get-Content ficha.txt",
+        "check": {
+          "command": "get-content",
+          "path": "$HOME\\MiProyecto\\ficha.txt",
+          "value": "Mi primer archivo con PowerShell"
+        },
+        "goal": "leer el mensaje guardado en ficha.txt"
+      }
+    ]
+  },
+  {
+    "id": "variables",
+    "title": "Ponle nombre a un valor",
+    "topic": "Variables",
+    "introduces": [],
+    "intro": "Una variable asocia un nombre con un valor. Se escribe con $. El signo = asigna el valor de la derecha a la variable de la izquierda.",
+    "steps": [
+      {
+        "title": "Guarda un nombre de ejemplo",
+        "instruction": "Asigna Ana a $nombre. Mira cómo aparece en el panel de variables.",
+        "example": "$nombre = \"Ana\"",
+        "parts": [
+          [
+            "$nombre",
+            "variable"
+          ],
+          [
+            "=",
+            "asignación"
+          ],
+          [
+            "\"Ana\"",
+            "valor"
+          ]
+        ],
+        "check": {
+          "kind": "assign",
+          "variable": "nombre",
+          "value": "Ana"
+        },
+        "goal": "guardar el texto Ana en la variable $nombre"
+      },
+      {
+        "title": "Muestra el valor guardado",
+        "instruction": "La terminal debe mostrar Ana, el valor de la variable.",
+        "example": "Write-Output $nombre",
+        "check": {
+          "command": "write-output",
+          "value": "Ana",
+          "reference": "nombre"
+        },
+        "goal": "mostrar el valor guardado en $nombre mediante Write-Output"
+      }
+    ]
+  },
+  {
+    "id": "input",
+    "title": "La terminal también pregunta",
+    "topic": "Entrada de datos",
+    "introduces": [
+      "read-host"
+    ],
+    "intro": "Read-Host espera una respuesta del teclado. Cuando aparezca la pregunta, escribe tu nombre sin comillas y presiona Enter.",
+    "steps": [
+      {
+        "title": "Guarda tu propio nombre",
+        "instruction": "Ejecuta la instrucción y responde la pregunta. La misión se completa cuando tu respuesta queda guardada.",
+        "example": "$nombre = Read-Host \"¿Cómo te llamas?\"",
+        "check": {
+          "command": "read-host",
+          "kind": "input",
+          "variable": "nombre",
+          "nonempty": true
+        },
+        "goal": "pedir tu nombre con Read-Host y guardarlo en $nombre"
+      },
+      {
+        "title": "Personaliza el saludo",
+        "instruction": "Dentro de comillas dobles, PowerShell sustituye $nombre por el valor que guardaste.",
+        "example": "Write-Output \"Hola $nombre\"",
+        "check": {
+          "command": "write-output",
+          "template": "Hola $nombre",
+          "reference": "nombre"
+        },
+        "goal": "mostrar Hola seguido de tu nombre",
+        "transition": "El reto siguiente abre un espacio de archivos nuevo y conserva tu nombre. Así podrás crear MiProyecto desde cero."
+      }
+    ]
+  },
+  {
+    "id": "challenge",
+    "title": "Ahora te toca a ti",
+    "topic": "Reto final",
+    "introduces": [],
+    "challenge": true,
+    "intro": "Estás en Documents dentro de un espacio nuevo. Completa los seis objetivos usando lo aprendido. Tu nombre sigue guardado en $nombre. Las pistas aparecen solo cuando las solicitas.",
+    "steps": [
+      {
+        "title": "Regresa a tu carpeta principal",
+        "instruction": "Cambia la ubicación de la terminal a C:\\Users\\Estudiante.",
+        "check": {
+          "command": "set-location",
+          "path": "$HOME"
+        },
+        "goal": "regresar a tu carpeta principal",
+        "hints": [
+          "La variable $HOME contiene la ruta de tu carpeta principal.",
+          "El comando que cambia la ubicación comienza con Set y termina con Location.",
+          "Set-Location $HOME"
+        ]
+      },
+      {
+        "title": "Crea la carpeta MiProyecto",
+        "instruction": "Crea MiProyecto dentro de tu carpeta principal.",
+        "check": {
+          "command": "new-item",
+          "path": "$HOME\\MiProyecto",
+          "type": "folder"
+        },
+        "goal": "crear MiProyecto en tu carpeta principal",
+        "hints": [
+          "Necesitas crear un elemento nuevo.",
+          "Usa New-Item e indica que el tipo es Directory.",
+          "New-Item MiProyecto -ItemType Directory"
+        ]
+      },
+      {
+        "title": "Entra en MiProyecto",
+        "instruction": "La terminal debe trabajar dentro de la carpeta recién creada.",
+        "check": {
+          "command": "set-location",
+          "path": "$HOME\\MiProyecto"
+        },
+        "goal": "entrar en MiProyecto",
+        "hints": [
+          "Comprueba la ruta del prompt.",
+          "Usa el comando de navegación y el nombre de la carpeta.",
+          "Set-Location MiProyecto"
+        ]
+      },
+      {
+        "title": "Crea el archivo ficha.txt",
+        "instruction": "Crea un archivo de texto vacío dentro de MiProyecto.",
+        "check": {
+          "command": "new-item",
+          "path": "$HOME\\MiProyecto\\ficha.txt",
+          "type": "file"
+        },
+        "goal": "crear ficha.txt en MiProyecto",
+        "hints": [
+          "Ya utilizaste el comando para crear elementos.",
+          "El tipo de elemento de un archivo es File.",
+          "New-Item ficha.txt -ItemType File"
+        ]
+      },
+      {
+        "title": "Guarda tu nombre en el archivo",
+        "instruction": "Escribe únicamente el nombre que ingresaste antes. Puedes aprovechar la variable $nombre.",
+        "check": {
+          "command": "set-content",
+          "path": "$HOME\\MiProyecto\\ficha.txt",
+          "contentVariable": "nombre",
+          "nonempty": true
+        },
+        "goal": "guardar tu nombre en ficha.txt",
+        "hints": [
+          "Mostrar un mensaje no lo guarda en un archivo.",
+          "Set-Content recibe el archivo y el contenido. Tu nombre está en $nombre.",
+          "Set-Content ficha.txt $nombre"
+        ]
+      },
+      {
+        "title": "Comprueba el contenido",
+        "instruction": "Lee ficha.txt desde la terminal y verifica que contiene tu nombre.",
+        "check": {
+          "command": "get-content",
+          "path": "$HOME\\MiProyecto\\ficha.txt",
+          "contentVariable": "nombre",
+          "nonempty": true
+        },
+        "goal": "leer tu nombre desde ficha.txt",
+        "hints": [
+          "Necesitas leer el contenido del archivo, no listar sus nombres.",
+          "El comando que lee texto comienza con Get y termina con Content.",
+          "Get-Content ficha.txt"
+        ]
+      }
+    ]
+  }
+]
